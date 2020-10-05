@@ -1,14 +1,12 @@
 package model;
 
-import model.id.CurriculumId;
-import model.id.TitleCode;
+import model.id.CourseId;
 
 import java.util.List;
 
 public class Course
 {
-	public Course(CurriculumId curriculumId,
-	              TitleCode titleCode,
+	public Course(CourseId courseId,
 	              String deptName,
 	              int catalogNumber,
 	              String catalogSuffix,
@@ -30,8 +28,7 @@ public class Course
 	              String whenTaught,
 	              List<Section> sections)
 	{
-		this.curriculumId = curriculumId;
-		this.titleCode = titleCode;
+		this.courseId = courseId;
 		this.deptName = deptName;
 		this.catalogNumber = catalogNumber;
 		this.catalogSuffix = catalogSuffix;
@@ -54,14 +51,9 @@ public class Course
 		this.sections = sections;
 	}
 
-	public CurriculumId getCurriculumId()
+	public CourseId getCourseId()
 	{
-		return curriculumId;
-	}
-
-	public TitleCode getTitleCode()
-	{
-		return titleCode;
+		return courseId;
 	}
 
 	public String getDeptName()
@@ -170,11 +162,10 @@ public class Course
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		Course course = (Course) o;
-		return curriculumId.equals(course.curriculumId) && titleCode.equals(course.titleCode);
+		return courseId.equals(course.courseId);
 	}
 
-	private final CurriculumId curriculumId;
-	private final TitleCode titleCode;
+	private final CourseId courseId;
 	private final String deptName;
 	private final int catalogNumber;
 	private final String catalogSuffix;

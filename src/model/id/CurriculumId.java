@@ -1,8 +1,10 @@
 package model.id;
 
+import java.util.Objects;
+
 public class CurriculumId
 {
-	CurriculumId(int value)
+	public CurriculumId(int value)
 	{
 		this.value = value;
 	}
@@ -19,6 +21,12 @@ public class CurriculumId
 		if (o == null || getClass() != o.getClass()) return false;
 		CurriculumId curriculumId = (CurriculumId) o;
 		return value == curriculumId.value;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return Objects.hash(value);
 	}
 
 	private final int value;

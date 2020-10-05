@@ -1,8 +1,10 @@
 package model.id;
 
+import java.util.Objects;
+
 public class ByuId
 {
-	ByuId(int value)
+	public ByuId(int value)
 	{
 		this.value = value;
 	}
@@ -19,6 +21,12 @@ public class ByuId
 		if (o == null || getClass() != o.getClass()) return false;
 		ByuId byuId = (ByuId) o;
 		return value == byuId.value;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return Objects.hash(value);
 	}
 
 	private final int value;
