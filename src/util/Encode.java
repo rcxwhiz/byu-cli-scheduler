@@ -1,13 +1,32 @@
 package util;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import java.io.*;
+import java.net.URL;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Encode
 {
 	private static final Gson gson = new Gson();
+
+	public static JsonObject stringToJson(String string)
+	{
+		return JsonParser.parseString(string).getAsJsonObject();
+	}
+
+	public static JsonObject responseToJson(URL url) throws IOException
+	{
+		Scanner scanner = new Scanner(url.openStream());
+		StringBuilder sb = new StringBuilder();
+		while (scanner.hasNext())
+			sb.append(scanner.nextLine());
+		String response = sb.toString();
+		return stringToJson(response);
+	}
 
 	public static String encode(Object object)
 	{

@@ -11,7 +11,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Random;
 
-import static api.Util.responseToJson;
+import static util.Encode.responseToJson;
 
 public class ByuApi
 {
